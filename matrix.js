@@ -16,13 +16,13 @@ class Matrix{
 
   }
 
-  transpose(){
+  static transpose(m1){
 
-    let result = new Matrix(this.cols, this.rows);
+    let result = new Matrix(m1.cols, m1.rows);
 
-    for(var i = 0; i < this.rows; i++){
-      for(var j = 0; j < this.cols; j++){
-        result.data[j][i] = this.data[i][j];
+    for(var i = 0; i < m1.rows; i++){
+      for(var j = 0; j < m1.cols; j++){
+        result.data[j][i] = m1.data[i][j];
       }
     }
 
@@ -112,6 +112,18 @@ class Matrix{
 
   }
 
+  static subtract(a, b){
+
+   let result = new Matrix(a.rows, a.cols);
+   for(var i = 0; i < result.rows; i++){
+     for(var j = 0; j < result.cols; j++){
+       result.data[i][j] = a.data[i][j] - b.data[i][j];           
+     }
+   }
+   return result;
+   
+  }
+    
   add(n){
 
     if(n instanceof Matrix){

@@ -1,10 +1,14 @@
 function setup() {
 
- let nn = new NeuralNetwork(2, 2, 1);
+ let nn = new NeuralNetwork(2, 2, 2);
 
- let input = new Matrix(2,1);
+ let inputs = [1, 0]; 
+ let targets = [1, 0];
 
- let output = nn.feedforward([1,0]);
- console.log(output);
+ //let output = nn.feedforward([1,0]);
+ 
+ let output = nn.train(inputs, targets);
+
+ console.table(output);
 } 
 
